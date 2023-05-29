@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-
 const Home = () => {
   const [moviesList, setMoviesList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +16,7 @@ const Home = () => {
       try {
         setIsLoading(true);
         const movies = await fetchTrends();
-        setMoviesList(movies);
+        setMoviesList([...movies]);
       } catch (error) {
         toast.error('Something went wrong!');
         setIsError(error.message);
@@ -30,25 +29,22 @@ const Home = () => {
 
   return (
     <>
-      <main>
-        <h1>Trending today</h1>
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <ul>
-            {moviesList.map(({ id, title }) => (
-              <li key={id}>
-                <NavLink to={`/movies/${id}`}>{title}</NavLink>
-              </li>
-            ))}
-          </ul>
-        )}
-        {isError && (
-          <p>
-            'The service is temporarily unavailable. Please try again later.'
-          </p>
-        )}
-      </main>
+      <h1>Trending today</h1>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <ul>
+          {moviesList.map(({ id, title }) => (
+            <li key={id}>
+              <NavLink to={`/movies/${id}`}>{title}</NavLink>
+            </li>
+          ))}
+        </ul>
+      )}
+      {isError && (
+        <p>'The service is temporarily unavailable. Please try again later.'</p>
+      )}
+
       <ToastContainer autoClose={3000} />
     </>
   );
