@@ -1,6 +1,6 @@
 const Cast = () => {
     return (
-    <div>Home</div>
+    <div>Cast</div>
     )
 }
 

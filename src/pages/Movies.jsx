@@ -21,13 +21,13 @@ const Movies = () => {
     const getMovies = async () => {
       try {
         setIsLoading(true);
-        const results = await fetchSearch(query);
+        const movielist = await fetchSearch(query);
 
-        if (results.length === 0) {
+        if (movielist.length === 0) {
           toast.info('No movies found');
           setMovies([]);
         } else {
-          setMovies(results);
+          setMovies(movielist);
         }
       } catch (error) {
         toast.error(error.message);

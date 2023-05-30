@@ -1,6 +1,6 @@
 const Reviews = () => {
     return (
-    <div>Home</div>
+    <div>Reviews</div>
     )
 }
 
