@@ -29,7 +29,9 @@ const MovieCard = ({
         </div>
         <div>
           <span>Genres</span>
-          {genres && genres.map(({ id, name }) => <li key={id}>{name}</li>)}
+          <ul>
+            {genres && genres.map(({ id, name }) => <li key={id}>{name}</li>)}
+          </ul>
         </div>
       </div>
     </div>
@@ -37,7 +39,7 @@ const MovieCard = ({
 };
 
 MovieCard.propTypes = {
-    movie: PropTypes.shape({
+  movie: PropTypes.shape({
     title: PropTypes.string,
     release_date: PropTypes.string,
     poster_path: PropTypes.string,

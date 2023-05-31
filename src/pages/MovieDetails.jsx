@@ -11,6 +11,8 @@ const MovieDetails = () => {
   const [selectedMovie, setSelectedMovie] = useState({});
 
   useEffect(() => {
+    if (!movieId) return;
+
     const fetchSelectedMovie = async movieId => {
       try {
         fetchMovieDetails(movieId).then(setSelectedMovie);
@@ -23,17 +25,17 @@ const MovieDetails = () => {
   }, [movieId]);
   return (
     <>
-      <Link to={location?.state?.from ?? '/home'}>
+      <Link to={location?.state?.from ?? '/'}>
         <button type="button">Go back</button>
       </Link>
 
       <MovieCard movie={selectedMovie} />
       <ul>
         <li>
-          <Link to="cast">Watch casting</Link>
+          <Link to="cast">Cast</Link>
         </li>
         <li>
-          <Link to="reviews">Watch reviews</Link>
+          <Link to="reviews">Reviews</Link>
         </li>
       </ul>
 
