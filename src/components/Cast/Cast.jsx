@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FaUserAlt } from 'react-icons/fa';
+import { ActorContainer, ActorImg } from './Cast.styled';
 
 const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -26,11 +27,11 @@ const Cast = () => {
   return (
     <div>
       {cast.length ? (
-        <div>
+        <ActorContainer>
           {cast?.map(({ id, profile_path, name, character }) => (
             <div key={id}>
               {profile_path ? (
-                <img
+                <ActorImg
                   src={`https://image.tmdb.org/t/p/w200/${profile_path}`}
                   alt={name}
                 />
@@ -45,7 +46,7 @@ const Cast = () => {
               </div>
             </div>
           ))}
-        </div>
+        </ActorContainer>
       ) : (
         <p>There is no casting available for that movie</p>
       )}

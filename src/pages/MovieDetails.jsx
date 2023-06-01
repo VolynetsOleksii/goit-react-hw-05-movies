@@ -4,6 +4,7 @@ import MovieCard from 'components/MovieCard/MovieCard';
 import { Suspense, useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Button } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -26,7 +27,7 @@ const MovieDetails = () => {
   return (
     <>
       <Link to={location?.state?.from ?? '/'}>
-        <button type="button">Go back</button>
+        <Button type="button">Go back</Button>
       </Link>
 
       <MovieCard movie={selectedMovie} />

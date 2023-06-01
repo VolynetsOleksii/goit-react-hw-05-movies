@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.lightBlue};
   padding-bottom: 15px;
   padding-top: 15px;
-  position: fixed;
+  position: sticky;
   z-index: 100;
   left: 0;
   top: 100;

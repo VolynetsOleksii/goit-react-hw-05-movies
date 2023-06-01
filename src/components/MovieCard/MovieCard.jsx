@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Container, Wrapper } from './MovieCard.styled';
 
 const MovieCard = ({
   movie: { title, release_date, poster_path, genres, overview, vote_average },
@@ -12,9 +13,9 @@ const MovieCard = ({
     ? 'Unknown'
     : releaseDate.getFullYear();
   return (
-    <div>
+    <Container>
       <img src={image} alt={title} />
-      <div>
+      <Wrapper>
         <h2>
           {title ?? 'Unknown'} ({releaseYear ?? releaseYear})
         </h2>
@@ -33,8 +34,8 @@ const MovieCard = ({
             {genres && genres.map(({ id, name }) => <li key={id}>{name}</li>)}
           </ul>
         </div>
-      </div>
-    </div>
+      </Wrapper>
+    </Container>
   );
 };
 

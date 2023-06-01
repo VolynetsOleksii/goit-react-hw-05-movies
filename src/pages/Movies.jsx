@@ -48,7 +48,6 @@ const Movies = () => {
   return (
     <>
       <Searchbar onSubmit={handleFormSubmit} />
-      <h2>Movies Page</h2>
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
